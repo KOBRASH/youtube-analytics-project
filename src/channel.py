@@ -57,6 +57,73 @@ class Channel:
     def url(self):
         return f'https://www.youtube.com/channel/{self.channel_id}'
 
+    def __str__(self):
+        return f"{self.title} ({self.url})"
+
+    def __add__(self, other):
+        if isinstance(other, Channel):
+            # Возвращает сумму числа подписчиков текущего канала и другого канала
+            return int(self.channel_data['items'][0]['statistics']['subscriberCount']) + int(
+                other.channel_data['items'][0]['statistics']['subscriberCount'])
+        else:
+            raise ValueError("Можно складывать только объекты Channel.")
+
+    def __sub__(self, other):
+        if isinstance(other, Channel):
+            # Возвращает разницу числа подписчиков текущего канала и другого канала
+            return int(self.channel_data['items'][0]['statistics']['subscriberCount']) - int(
+                other.channel_data['items'][0]['statistics']['subscriberCount'])
+        else:
+            raise ValueError("Можно вычитать только объекты Channel.")
+
+    def __eq__(self, other):
+        if isinstance(other, Channel):
+            # Проверяет равенство числа подписчиков текущего канала и другого канала
+            return int(self.channel_data['items'][0]['statistics']['subscriberCount']) == int(
+                other.channel_data['items'][0]['statistics']['subscriberCount'])
+        else:
+            raise ValueError("Можно сравнивать на равенство только объекты Channel.")
+
+    def __ne__(self, other):
+        if isinstance(other, Channel):
+            # Проверяет неравенство числа подписчиков текущего канала и другого канала
+            return int(self.channel_data['items'][0]['statistics']['subscriberCount']) != int(
+                other.channel_data['items'][0]['statistics']['subscriberCount'])
+        else:
+            raise ValueError("Можно сравнивать на неравенство только объекты Channel.")
+
+    def __gt__(self, other):
+        if isinstance(other, Channel):
+            # Проверяет, больше ли число подписчиков текущего канала, чем у другого канала
+            return int(self.channel_data['items'][0]['statistics']['subscriberCount']) > int(
+                other.channel_data['items'][0]['statistics']['subscriberCount'])
+        else:
+            raise ValueError("Можно сравнивать только объекты Channel на больше чем.")
+
+    def __ge__(self, other):
+        if isinstance(other, Channel):
+            # Проверяет, больше или равно ли число подписчиков текущего канала, чем у другого канала
+            return int(self.channel_data['items'][0]['statistics']['subscriberCount']) >= int(
+                other.channel_data['items'][0]['statistics']['subscriberCount'])
+        else:
+            raise ValueError("Можно сравнивать только объекты Channel на больше или равно.")
+
+    def __lt__(self, other):
+        if isinstance(other, Channel):
+            # Проверяет, меньше ли число подписчиков текущего канала, чем у другого канала
+            return int(self.channel_data['items'][0]['statistics']['subscriberCount']) < int(
+                other.channel_data['items'][0]['statistics']['subscriberCount'])
+        else:
+            raise ValueError("Можно сравнивать только объекты Channel на меньше чем.")
+
+    def __le__(self, other):
+        if isinstance(other, Channel):
+            # Проверяет, меньше или равно ли число подписчиков текущего канала, чем у другого канала
+            return int(self.channel_data['items'][0]['statistics']['subscriberCount']) <= int(
+                other.channel_data['items'][0]['statistics']['subscriberCount'])
+        else:
+            raise ValueError("Можно сравнивать только объекты Channel на меньше или равно.")
+
 if __name__ == '__main__':
     moscowpython = Channel('UC-OVMPlMA3-YCIeg4z5z23A')
 
