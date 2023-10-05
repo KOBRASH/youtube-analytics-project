@@ -13,7 +13,7 @@ class Video:
 
     # Метод для получения информации о видео из YouTube API
     def get_video_info(self):
-        api_key = 'YOUR_YOUTUBE_API_KEY'  # Замените 'YOUR_YOUTUBE_API_KEY' на свой ключ API
+        api_key = 'AIzaSyCmeF176p_td6JljSSx-ziWq63dZrnGdkgY'
         base_url = 'https://www.googleapis.com/youtube/v3/videos'
         params = {
             'part': 'snippet,statistics',
