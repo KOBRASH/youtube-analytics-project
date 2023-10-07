@@ -10,7 +10,7 @@ class PlaylistBase:
         self.videos = self._get_playlist_videos()
 
     def _get_playlist_videos(self):
-        # Создайте объект YouTube API
+
         youtube_service = build('youtube', 'v3', developerKey=self.api_key)
 
         # Запрос информации о видео в плейлисте
